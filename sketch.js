@@ -224,7 +224,10 @@ function setup(){
     backgC1.addImage(bgImgUG)
     backgC1.scale = 1.5
     backgC1.visible = false
-
+  backgC2 = createSprite(800/2-26050, 700/2)
+    backgC2.addImage(bgImgUG)
+    backgC2.scale = 1.5
+    backgC2.visible = false
 
     //DECALS
     d5 = createSprite(800/2+500,700-50)
@@ -299,7 +302,7 @@ function setup(){
     createPlatform(800/2 - 7500,700-80, 0.5)
 
     //CITY
-    createPlatform3(800/2 - 1500,700-180, 0.3)
+   // createPlatform3(800/2 - 1500,700-180, 0.3)
     createPlatform4(-15165, 700 - 90, 0.5)
     //createPlatform3(-15165,700-180, 0.3)
     createPlatform4(-15750, 700 - 90, 0.5)
@@ -642,6 +645,7 @@ if (music2.isPlaying() === false && bruh === 1){
         backgD3.visible = true
         backgUG1.visible = true
         backgC1.visible = true
+           backgC2.visible = true
         ts.visible = false
        // credits.visible = false
         titleN.visible = false
@@ -1068,6 +1072,7 @@ if(player.isTouching(shard2)){
             backg2.velocityX = 0
             backg3.velocityX = 0
             backgC1.velocityX =0
+                backgC2.velocityX =0
             backgD.velocityX = 0
             backgD2.velocityX = 0
             backgD3.velocityX = 0
@@ -1099,6 +1104,9 @@ if(player.isTouching(shard2)){
             
             backgC1.x = 800/2-13950
             backgC1.y = 700/2
+
+            backgC2.x = 800/2-26050
+            backgC2.y = 700/2
 
           
             
@@ -1201,6 +1209,7 @@ if(death === false ){
         backgD2.velocityX = Math.round(player.velocityX - 3)
         backgD3.velocityX = Math.round(player.velocityX - 3)
         backgC1.velocityX = Math.round(player.velocityX - 3)
+        backgC2.velocityX = Math.round(player.velocityX - 3)
         backgUG1.velocityX = Math.round(player.velocityX - 3)
       
     }
@@ -1219,6 +1228,7 @@ if(death === false ){
         backgD2.velocityX = Math.round(player.velocityX + 3)
         backgD3.velocityX = Math.round(player.velocityX + 3)
         backgC1.velocityX = Math.round(player.velocityX + 3)
+        backgC2.velocityX = Math.round(player.velocityX + 3)
         backgUG1.velocityX =Math.round(player.velocityX + 3)
     }
     else{
@@ -1231,6 +1241,7 @@ if(death === false ){
         backgD2.velocityX = 0
         backgD3.velocityX = 0
         backgC1.velocityX = 0
+        backgC2.velocityX = 0
         backgUG1.velocityX = 0
     }
     //debug
@@ -1238,6 +1249,10 @@ if(death === false ){
         w = true
         w2 = true
         level = 1
+    }
+     if(goofy == "dr"){
+        w=true
+        checkpoint = 2
     }
     //more debug
   //  if(keyWentDown("0")){
@@ -1572,6 +1587,9 @@ function cheat(){
     else if (code == "fall"){
         goofy = "nl"
     }
+      else if (code == "door"){
+        goofy = "dr"
+    }
     else{
        goofy = "error"
     }
@@ -1614,7 +1632,7 @@ else{
 }
 }
 if(goofy == "nl"){
-       nl = "" 
+       goofy = "" 
 }
 
     death = false
