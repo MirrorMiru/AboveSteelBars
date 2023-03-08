@@ -608,6 +608,12 @@ function draw(){
 
 //PLAY
 if(gameState === "play" ){
+    if(goofy == "upside"){
+        player.mirrorY(-1)
+    }
+    if(goofy == "mj"){
+        player.mirrorX(-1)
+    }
 
   //music script (broken)
   /*
@@ -1254,6 +1260,7 @@ if(death === false ){
         w=true
         checkpoint = 2
     }
+
     //more debug
   //  if(keyWentDown("0")){
   //      console.log(player.x)
@@ -1263,18 +1270,38 @@ if(keyWentDown("p")){
     shards = 2
 }
 
-
+//camera
+if(keyDown("d")){
+    camera.x = camera.x + 50
+} else if(keyWentUp("d")){
+    camera.x = player.x
+}
+if(keyDown("a")){
+    camera.x = camera.x - 50
+} else if(keyWentUp("a")){
+    camera.x = player.x
+}
+/*if(keyDown("w")){
+    camera.y = 330
+} else if(keyWentUp("w")){
+    camera.y = 350
+}
+if(keyDown("s")){
+    camera.y = 370
+} else if(keyWentUp("s")){
+    camera.y = 350
+}*/
         //JUMP
 
 
 
 
-        if(keyWentDown("W") && player.isTouching(JG)){
+        if(keyWentDown(UP_ARROW) && player.isTouching(JG)){
             player.velocityY = -20
             jumps.play()
             grounded = false
         }
-        if(keyDown("W")){
+        if(keyDown(UP_ARROW)){
             grounded = false
         }
         else if(!player.isTouching(JG)){
@@ -1286,7 +1313,7 @@ if(keyWentDown("p")){
 
 
         //RIGHT
-        if(keyDown("D")){
+        if(keyDown(RIGHT_ARROW)){
 
             
            
@@ -1317,7 +1344,7 @@ if(keyWentDown("p")){
             
         }
       
-        if(keyWentUp("D")){
+        if(keyWentUp(RIGHT_ARROW)){
            
          //  player.velocityX = 0
            
@@ -1327,7 +1354,7 @@ if(keyWentDown("p")){
         }
 
         //LEFT
-        if(keyDown("A")){
+        if(keyDown(LEFT_ARROW)){
 
           
             if(walks.isPlaying() === false&& player.isTouching(JG)){
@@ -1353,7 +1380,7 @@ if(keyWentDown("p")){
             
             }
         }
-        if(keyWentUp("A")){
+        if(keyWentUp(LEFT_ARROW)){
            
            
             player.changeAnimation("idle",PlayerI)
@@ -1589,6 +1616,11 @@ function cheat(){
     }
       else if (code == "door"){
         goofy = "dr"
+    } else if (code == "dinnerbone"){
+        goofy = "upside"
+    }
+    else if (code == "hehe"){
+        goofy = "mj"
     }
     else{
        goofy = "error"
