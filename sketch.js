@@ -614,6 +614,10 @@ if(gameState === "play" ){
     if(goofy == "mj"){
         player.mirrorX(-1)
     }
+    if(goofy == "pedo"){
+        player.mirrorX(-1)
+        player.mirrorY(-1)
+    }
 
   //music script (broken)
   /*
@@ -1266,9 +1270,9 @@ if(death === false ){
   //      console.log(player.x)
    // }
 
-if(keyWentDown("p")){
+/*if(keyWentDown("p")){
     shards = 2
-}
+}*/
 
 //camera
 if(keyDown("d")){
@@ -1621,6 +1625,9 @@ function cheat(){
     }
     else if (code == "hehe"){
         goofy = "mj"
+    }
+    else if (code == "lionmaker"){
+        goofy = "pedo"
     }
     else{
        goofy = "error"
