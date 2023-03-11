@@ -162,6 +162,8 @@ shard2I = loadAnimation("images/shard2.png")
 //saw
     sawA = loadAnimation("images/Saw1.png","images/Saw2.png","images/Saw3.png","images/Saw4.png")
 
+    instructionsA = loadAnimation("images/directions1.png","images/directions2.png")
+    instructionsA.frameDelay = 100
 
     //SOUND
 
@@ -265,12 +267,18 @@ function setup(){
    bounceboxE6.visible = false
 
     //ship
+    instructions = createSprite(400,140,10,10)
+    instructions.scale = 0.45
+    instructions.addAnimation("sign1",instructionsA)
     createPlatform(800/2 - 600,700-100, 0.5)
     door = createSprite(800/2 - 300,700/2)
     door.addImage(doorImg)
     door.scale = 0.8
     door.setCollider("rectangle", 50,0,200,1000)
     createPlatform(800/2,700-100, 0.5)
+
+    
+   // instructions.changeAnimation(instructionsA,"sign1")
     createPlatform2(800/2 - 1500,700-100, 0.1)
     createPlatform2(800/2 - 1800,700-100, 0.1)
     createPlatform2(800/2 - 2100,700-100, 0.1)
